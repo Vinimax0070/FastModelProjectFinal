@@ -1,0 +1,41 @@
+/* Estilos básicos para responsividade */
+.container {
+    display: flex; /* Use flexbox para layout responsivo */
+}
+
+header {
+    /* Estilos do cabeçalho */
+}
+
+.side-menu {
+    width: 250px; /* Largura do menu lateral */
+    /* Outros estilos do menu */
+}
+
+main {
+    flex: 1; /* Ocupa o espaço restante */
+    padding: 20px;
+}
+
+.product-card {
+    /* Estilos do card do produto */
+}
+
+/* Media queries para diferentes tamanhos de tela */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Muda para layout vertical em telas menores */
+    }
+
+    .side-menu {
+        width: 100%; /* Ocupa a largura total em telas menores */
+        position: absolute; /* Posiciona sobre o conteúdo principal */
+        top: 0;
+        left: -100%; /* Esconde inicialmente */
+        transition: left 0.3s ease-in-out; /* Adiciona uma transição suave */
+    }
+
+        .side-menu.open {
+            left: 0; /* Mostra o menu quando aberto */
+        }
+}

@@ -1,0 +1,86 @@
+/* Estilos gerais para a página */
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: white; /* Cor de fundo */
+    color: white; /* Cor do texto */
+}
+
+/* Estilos para o container principal */
+.cadastro-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: white;
+}
+
+/* Estilos para a logo */
+.logo {
+    width: 20%; /* Ajuste o tamanho conforme necessário */
+    margin-bottom: 40px; /* Adicione espaço abaixo da logo */
+}
+
+/* Estilos para os grupos de formulário */
+.form-group {
+    width: 100%;
+    max-width: 300px; /* Defina a largura máxima do formulário */
+    margin-bottom: 15px; /* Espaçamento entre os grupos de formulário */
+}
+
+    /* Estilos para os inputs */
+    .form-group input {
+        width: calc(100% - 30px); /* Ocupar a largura total menos o padding */
+        padding: 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+        background-color: #28282d; /* Cor de fundo dos inputs */
+        color: white; /* Cor do texto dos inputs */
+    }
+
+/* Estilos para o botão */
+.btn-login {
+    /* ... seus estilos de botão existentes ... */
+    width: 100%; /* Ocupar a largura total do container */
+    margin-top: 20px; /* Adicione espaço acima do botão */
+}
+
+/* Estilos para o link "Esqueci minha senha" */
+.forgot-password {
+    color: gray;
+    text-decoration: none;
+    font-size: 14px;
+    margin-top: 10px; /* Adicione espaço acima do link */
+}
+
+/* Estilos para o botão de voltar (seta) */
+.back-arrow {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 24px;
+    color: #000f;
+    cursor: pointer;
+    border: none; /* Remove a borda padrão do botão */
+    background-color: transparent; /* Torna o fundo transparente */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%; /* Deixa o botão redondo */
+}
+
+    /* Estilos para o botão de voltar quando o mouse está sobre ele */
+    .back-arrow:hover {
+        background-color: #ffffff15; /* Adiciona um fundo sutil ao passar o mouse */
+
+    }
+
+.logo {
+    width: 16%; /* Ajuste conforme necessário */
+    margin-bottom: 100px;
+}
