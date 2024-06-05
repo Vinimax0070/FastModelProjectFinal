@@ -5,6 +5,7 @@ import Login from './components/Login';
 import CadEnd from './components/CadEnd'; // Importe o componente Cadastro
 import Cadastro from './components/Cadastro'; // Importe o primeiro componente de cadastro
 import Home from './components/Home';
+import DropdownMenu from './components/DropdownMenu';
 
 function App() {
     return (
@@ -14,6 +15,7 @@ function App() {
                 <Route path="/CadEnd" element={<CadEnd />} />
                 <Route path="/Cadastro" element={<Cadastro />} />
                 <Route path="/Home" element={<Home />} />
+                
             </Routes>
         </Router>
     );

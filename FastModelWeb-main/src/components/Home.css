@@ -1,41 +1,150 @@
-/* Estilos b�sicos para responsividade */
-.container {
-    display: flex; /* Use flexbox para layout responsivo */
-}
+/* Home.css */
 
-header {
-    /* Estilos do cabe�alho */
-}
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #555353; /* Cor de fundo da página inteira */
+  }
+  
+  .home {
+    font-family: Arial, sans-serif;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative; /* Adiciona posição relativa à home */
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+    padding-left: 100;
+    background-color: #c2c1c1;
+  }
+  
+  .menu-icon, .icon {
+    cursor: pointer;
+    font-size: 32px; /* Aumenta o tamanho dos ícones */
+  }
+  
+  .logo {
+    text-align: center;
+    height: 70px; /* Mantém a altura do logo */
+  }
+  
+  .logo-image {
+    width: 300px; /* Ajusta o tamanho do logo */
+    height: auto;
+  }
+  
+  .actions {
+    display: flex;
+  }
+  
+  .dropdown-menu, .dropdown-settings {
+    position: absolute;
+    background-color: #030303;
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    z-index: 10;
+    width: 150px;
+   
+  }
 
-.side-menu {
-    width: 250px; /* Largura do menu lateral */
-    /* Outros estilos do menu */
-}
+  
+  
+  .dropdown-menu {
+    top: calc(13% + 10px); /* Ajusta a posição do menu suspenso */
+    left: 5%;
+    transform: translateX(-50%);
+    background-color: black;
+  }
+  
+  .dropdown-settings {
+    top: calc(12% + 20px); /* Ajusta a posição do menu suspenso */
+    right: 1%;
+    transform: translateX(50%);
+  }
+  
+  .dropdown-menu ul, .dropdown-settings ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .dropdown-menu ul li, .dropdown-settings ul li {
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .dropdown-menu ul li:hover, .dropdown-settings ul li:hover {
+    background-color: #adacac;
+  }
+  
+  .content {
+    padding-top: 10px;
+    padding-bottom: 50px;
+   
+  }
+  
+  .products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 20px;
+    width: 20px;
+  }
+    
+  .product {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+    margin-top: 10px;
+  }
+  
+  .product h3 {
+    font-size: 16px;
+    margin: 5px 0;
+  }
 
-main {
-    flex: 1; /* Ocupa o espa�o restante */
-    padding: 20px;
-}
+  .product-price{
+    background-color: #429146;
+  }
+  
+  .product p {
+    margin: 5px 0;
+    color: #bdbcbc;
+  }
+  
+  .product p:first-child {
+    font-weight: bold;
+  
+  }
+  
+  .product p:last-child {
+    color: #d4d4d4;
+  }
 
-.product-card {
-    /* Estilos do card do produto */
-}
+  .product-image {
+    width: 100%; /* A imagem do produto preenche 100% do espaço disponível */
+    height: auto; /* Mantém a proporção da imagem */
+  }
 
-/* Media queries para diferentes tamanhos de tela */
-@media (max-width: 768px) {
-    .container {
-        flex-direction: column; /* Muda para layout vertical em telas menores */
-    }
-
-    .side-menu {
-        width: 100%; /* Ocupa a largura total em telas menores */
-        position: absolute; /* Posiciona sobre o conte�do principal */
-        top: 0;
-        left: -100%; /* Esconde inicialmente */
-        transition: left 0.3s ease-in-out; /* Adiciona uma transi��o suave */
-    }
-
-        .side-menu.open {
-            left: 0; /* Mostra o menu quando aberto */
-        }
-}
+  
+  button {
+    background-color: #4CAF50; /* Cor de fundo */
+    color: white; /* Cor do texto */
+    font-weight: bold;
+    padding: 10px 20px; /* Espaçamento interno */
+    border: none; /* Remove a borda */
+    border-radius: 5px; /* Arredonda as bordas */
+    cursor: pointer; /* Mostra o cursor como ponteiro ao passar por cima */
+    transition: background-color 0.3s ease; /* Transição suave da cor de fundo */
+  }
+  
+    button:hover {
+    background-color: #429146; /* Cor de fundo quando hover */
+  }
+  
