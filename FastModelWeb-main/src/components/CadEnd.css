@@ -1,9 +1,9 @@
-/* Estilos gerais para a página */
+/* Estilos gerais para a pï¿½gina */
 body, html {
     height: 100%;
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
-    background-color: white; /* Cor de fundo */
+    background-color:#555353; /* Cor de fundo */
     color: white; /* Cor do texto */
 }
 
@@ -19,15 +19,15 @@ body, html {
 
 /* Estilos para a logo */
 .logo {
-    width: 20%; /* Ajuste o tamanho conforme necessário */
-    margin-bottom: 40px; /* Adicione espaço abaixo da logo */
+    width: 20%; /* Ajuste o tamanho conforme necessï¿½rio */
+    margin-bottom: 40px; /* Adicione espaï¿½o abaixo da logo */
 }
 
-/* Estilos para os grupos de formulário */
+/* Estilos para os grupos de formulï¿½rio */
 .form-group {
     width: 100%;
-    max-width: 300px; /* Defina a largura máxima do formulário */
-    margin-bottom: 15px; /* Espaçamento entre os grupos de formulário */
+    max-width: 300px; /* Defina a largura mï¿½xima do formulï¿½rio */
+    margin-bottom: 15px; /* Espaï¿½amento entre os grupos de formulï¿½rio */
 }
 
     /* Estilos para os inputs */
@@ -41,11 +41,11 @@ body, html {
         color: white; /* Cor do texto dos inputs */
     }
 
-/* Estilos para o botão */
+/* Estilos para o botï¿½o */
 .btn-login {
-    /* ... seus estilos de botão existentes ... */
+    /* ... seus estilos de botï¿½o existentes ... */
     width: 100%; /* Ocupar a largura total do container */
-    margin-top: 20px; /* Adicione espaço acima do botão */
+    margin-top: 20px; /* Adicione espaï¿½o acima do botï¿½o */
 }
 
 /* Estilos para o link "Esqueci minha senha" */
@@ -53,10 +53,10 @@ body, html {
     color: gray;
     text-decoration: none;
     font-size: 14px;
-    margin-top: 10px; /* Adicione espaço acima do link */
+    margin-top: 10px; /* Adicione espaï¿½o acima do link */
 }
 
-/* Estilos para o botão de voltar (seta) */
+/* Estilos para o botï¿½o de voltar (seta) */
 .back-arrow {
     position: absolute;
     top: 20px;
@@ -64,23 +64,23 @@ body, html {
     font-size: 24px;
     color: #000f;
     cursor: pointer;
-    border: none; /* Remove a borda padrão do botão */
+    border: none; /* Remove a borda padrï¿½o do botï¿½o */
     background-color: transparent; /* Torna o fundo transparente */
     display: flex;
     align-items: center;
     justify-content: center;
     width: 40px;
     height: 40px;
-    border-radius: 50%; /* Deixa o botão redondo */
+    border-radius: 50%; /* Deixa o botï¿½o redondo */
 }
 
-    /* Estilos para o botão de voltar quando o mouse está sobre ele */
+    /* Estilos para o botï¿½o de voltar quando o mouse estï¿½ sobre ele */
     .back-arrow:hover {
         background-color: #ffffff15; /* Adiciona um fundo sutil ao passar o mouse */
 
     }
 
 .logo {
-    width: 16%; /* Ajuste conforme necessário */
+    width: 16%; /* Ajuste conforme necessï¿½rio */
     margin-bottom: 100px;
 }

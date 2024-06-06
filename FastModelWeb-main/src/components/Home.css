@@ -12,6 +12,7 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   position: relative; /* Adiciona posição relativa à home */
+  background-color: #555353; /* Cor de fundo da home */
 }
 
 .header {
@@ -25,6 +26,7 @@ body {
 
 .menu-icon, .icon {
   cursor: pointer;
+  color: black;
   font-size: 32px; /* Aumenta o tamanho dos ícones */
 }
 
@@ -83,6 +85,7 @@ body {
 .content {
   padding-top: 10px;
   padding-bottom: 50px;
+  background-color: #555353; /* Cor de fundo da content */
 }
 
 .products {
@@ -98,6 +101,9 @@ body {
   padding: 10px;
   text-align: center;
   background-color: #fff; /* Adiciona cor de fundo branca aos produtos */
+  display: flex;
+  flex-direction: column; /* Torna a direção do layout vertical */
+  justify-content: space-between; /* Distribui o espaço uniformemente */
 }
 
 .product h3 {
@@ -109,7 +115,6 @@ body {
 .product-price {
   background-color: #429146;
 }
-
 
 .product p {
   margin: 5px 0;
@@ -126,7 +131,9 @@ body {
 
 .product-image {
   width: 100%; /* A imagem do produto preenche 100% do espaço disponível */
-  height: auto; /* Mantém a proporção da imagem */
+  height: 200px; /* Define uma altura fixa para as imagens */
+  object-fit: cover; /* Ajusta a imagem para cobrir o contêiner, mantendo a proporção */
+  margin-bottom: 10px; /* Espaço entre a imagem e o restante do conteúdo */
 }
 
 button {
@@ -145,7 +152,6 @@ button:hover {
 }
 
 /* Estilos para o texto tie-dye */
-
 .tie-dye-text {
   display: flex;
 }
@@ -155,8 +161,73 @@ button:hover {
   font-size: 36px;
   font-weight: bold;
   display: inline-block;
-  background: linear-gradient(to right, #FF6F91 50%, #FF9671 50%);
+  background: linear-gradient(to right, #fafafa 50%, #fdf6f6 50%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-shadow: 2px 2px 2px #000; /* Sombra preta */
+}
+
+/* Adicionando o estilo do carrinho */
+.cart-summary {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #c2c1c1;
+  border-radius: 5px;
+  text-align: center;
+  color: black;
+}
+
+/* Home.css */
+
+/* Other styles... */
+
+.cart-dropdown {
+  position: absolute;
+  top: 80px; /* Adjust the top position according to your layout */
+  right: 10px; /* Adjust the right position according to your layout */
+  background-color: #080808;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  z-index: 10;
+  width: 200px; /* Adjust the width as needed */
+}
+
+.cart-dropdown h3 {
+  margin-top: 0;
+}
+
+.cart-dropdown ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.cart-dropdown ul li {
+  margin-bottom: 10px;
+}
+
+.cart-dropdown h4 {
+  margin-top: 20px;
+  margin-bottom: 0;
+}
+
+/* Home.css */
+
+/* Outros estilos ... */
+
+button.addToCart {
+  background-color: #df2828; /* Cor de fundo */
+  color: white; /* Cor do texto */
+  font-weight: bold;
+  margin-left: 15px;
+  padding: 4px 5px; /* Espaçamento interno */
+  border: none; /* Remove a borda */
+  border-radius: 5px; /* Arredonda as bordas */
+  cursor: pointer; /* Mostra o cursor como ponteiro ao passar por cima */
+  transition: background-color 0.3s ease; /* Transição suave da cor de fundo */
+}
+
+button.addToCart:hover {
+  background-color: #9c1515; /* Cor de fundo quando hover */
 }

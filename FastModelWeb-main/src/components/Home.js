@@ -10,25 +10,34 @@ import BoneAntiSocial from './tenisStreetImage/Bone.png';
 import Baw from './tenisStreetImage/Baw.png';
 import Supreme from './tenisStreetImage/Supreme.png';
 import Bolsa from './tenisStreetImage/Bolsa.png';
-import Polo from './tenisStreetImage/Polo.png'
-// Importe as imagens dos produtos
-//import camisetaStreetImage from './camiseta-street.jpg';
-// Importe as outras imagens dos produtos...
+import Polo from './tenisStreetImage/Polo.png';
+import Adidas from './tenisStreetImage/AdidasCampus.png';
 
 const Home = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [settingsOpen, setSettingsOpen] = useState(false);
+  const [cartOpen, setCartOpen] = useState(false);
+  const [cart, setCart] = useState([]);
   const menuRef = useRef(null);
   const settingsRef = useRef(null);
+  const cartRef = useRef(null);
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
     if (settingsOpen) setSettingsOpen(false);
+    if (cartOpen) setCartOpen(false);
   };
 
   const toggleSettings = () => {
     setSettingsOpen(!settingsOpen);
     if (menuOpen) setMenuOpen(false);
+    if (cartOpen) setCartOpen(false);
+  };
+
+  const toggleCart = () => {
+    setCartOpen(!cartOpen);
+    if (menuOpen) setMenuOpen(false);
+    if (settingsOpen) setSettingsOpen(false);
   };
 
   const handleClickOutside = (event) => {
@@ -37,6 +46,9 @@ const Home = () => {
     }
     if (settingsRef.current && !settingsRef.current.contains(event.target)) {
       setSettingsOpen(false);
+    }
+    if (cartRef.current && !cartRef.current.contains(event.target)) {
+      setCartOpen(false);
     }
   };
 
@@ -47,8 +59,23 @@ const Home = () => {
     };
   }, []);
 
+  const addToCart = (product) => {
+    setCart([...cart, product]);
+  };
+
+  const removeFromCart = (productId) => {
+    setCart(cart.filter(product => product.id !== productId));
+  };
+
+  const calculateTotal = () => {
+    return cart.reduce((total, product) => {
+      const price = parseFloat(product.price.replace('R$', '').replace('.', '').replace(',', '.'));
+      return total + price;
+    }, 0).toFixed(2);
+  };
+
   const products = [
-    { id: 1, category: 'StreetWalk', title: 'Tênis Street', price: 'R$ 14.099,99', stars: 4, views: 150000, image: tenisStreetImage },
+    { id: 1, category: 'StreetWalk', title: 'Adidas Campus 00s', price: 'R$ 699,99', stars: 4, views: 150000, image: Adidas },
     { id: 2, category: 'StreetWalk', title: 'Camiseta CapangaTriad Shui', price: 'R$ 699,99', stars: 5, views: 2000, image: CamisetaCapangaTriadShui },
     { id: 3, category: 'StreetWalk', title: 'Camiseta Approve Big Bear', price: 'R$ 199,90', stars: 5, views: 5000, image: CamisetaApproveBigBear},
     { id: 4, category: 'StreetWalk', title: 'Nike SB Dunk Low Big Money Savings', price: 'R$ 1.159,99', stars: 4.8, views: 1200, image: NikeSbDunkLowBig },
@@ -58,14 +85,14 @@ const Home = () => {
     { id: 8, category: 'StreetWalk', title: 'Camiseta Street', price: 'R$ 5999,99', stars: 5, views: 45042, image: Supreme },
     { id: 9, category: 'StreetWalk', title: 'Carteira Ophidia Gucci', price: 'R$ 8399,99', stars: 4.3, views: 9820, image: Bolsa },
     { id: 10, category: 'StreetWalk', title: 'Moletom Lunar Polo Ralph Lauren', price: 'R$  1.713', stars: 4.7, views: 15426, image: Polo },
-    // Adicione os outros produtos com seus respectivos caminhos para as imagens
-    // Exemplo: { id: 3, category: 'StreetWalk', title: 'Calça Street', price: 'R$ 149,99', stars: 3, views: 120, image: calcaStreetImage },
   ];
+  
   const renderHalfColorText = (text) => {
     return text.split('').map((letter, index) => (
       <span key={index}>{letter}</span>
     ));
   };
+
   return (
     <div className="home">
       <header className="header">
@@ -74,7 +101,7 @@ const Home = () => {
           <img src={logo} alt="Logo" className="logo-image" />
         </div>
         <div className="actions">
-          <div className="icon">🛒</div>
+          <div className="icon" onClick={toggleCart}>🛒</div>
           <div className="icon" onClick={toggleSettings}>👤</div>
         </div>
       </header>
@@ -94,9 +121,26 @@ const Home = () => {
             <li>Meus pedidos</li>
             <li>Formas de pagamento</li>
             <li>Help center</li>
-            
           </ul>
         </nav>
+      )}
+      {cartOpen && (
+        <div className="cart-dropdown" ref={cartRef}>
+          <h3>Carrinho de Compras</h3>
+          {cart.length === 0 ? (
+            <p>Seu carrinho está vazio</p>
+          ) : (
+            <ul>
+              {cart.map((product, index) => (
+                <li key={index}>
+                  {product.title} - {product.price}
+                  <button onClick={() => removeFromCart(product.id)}  className="addToCart" >Remover</button>
+                </li>
+              ))}
+            </ul>
+          )}
+          <h4>Total: R$ {calculateTotal()}</h4>
+        </div>
       )}
       <main className="content">
         <h2>Bem-vindo à FastModel</h2>
@@ -110,7 +154,8 @@ const Home = () => {
               <p>{product.price}</p>
               <p>⭐ {product.stars} estrelas</p>
               <p>👁️ {product.views} views</p>
-              <button>Adicionar ao carrinho</button>
+              <button onClick={() => addToCart(product)}>Adicionar ao Carrinho</button>
+
             </div>
           ))}
         </div>
