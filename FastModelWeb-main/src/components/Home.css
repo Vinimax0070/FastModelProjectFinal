@@ -1,150 +1,162 @@
 /* Home.css */
 
 body {
-    margin: 0;
-    padding: 0;
-    background-color: #555353; /* Cor de fundo da página inteira */
-  }
-  
-  .home {
-    font-family: Arial, sans-serif;
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    position: relative; /* Adiciona posição relativa à home */
-  }
-  
-  .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 20px;
-    padding-left: 100;
-    background-color: #c2c1c1;
-  }
-  
-  .menu-icon, .icon {
-    cursor: pointer;
-    font-size: 32px; /* Aumenta o tamanho dos ícones */
-  }
-  
-  .logo {
-    text-align: center;
-    height: 70px; /* Mantém a altura do logo */
-  }
-  
-  .logo-image {
-    width: 300px; /* Ajusta o tamanho do logo */
-    height: auto;
-  }
-  
-  .actions {
-    display: flex;
-  }
-  
-  .dropdown-menu, .dropdown-settings {
-    position: absolute;
-    background-color: #030303;
-    border: 1px solid #ffffff;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    padding: 10px;
-    z-index: 10;
-    width: 150px;
-   
-  }
+  margin: 0;
+  padding: 0;
+  background-color: #555353; /* Cor de fundo da página inteira */
+}
 
-  
-  
-  .dropdown-menu {
-    top: calc(13% + 10px); /* Ajusta a posição do menu suspenso */
-    left: 5%;
-    transform: translateX(-50%);
-    background-color: black;
-  }
-  
-  .dropdown-settings {
-    top: calc(12% + 20px); /* Ajusta a posição do menu suspenso */
-    right: 1%;
-    transform: translateX(50%);
-  }
-  
-  .dropdown-menu ul, .dropdown-settings ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  .dropdown-menu ul li, .dropdown-settings ul li {
-    padding: 10px;
-    cursor: pointer;
-  }
-  
-  .dropdown-menu ul li:hover, .dropdown-settings ul li:hover {
-    background-color: #adacac;
-  }
-  
-  .content {
-    padding-top: 10px;
-    padding-bottom: 50px;
-   
-  }
-  
-  .products {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    grid-gap: 20px;
-    width: 20px;
-  }
-    
-  .product {
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 10px;
-    text-align: center;
-    margin-top: 10px;
-  }
-  
-  .product h3 {
-    font-size: 16px;
-    margin: 5px 0;
-  }
+.home {
+  font-family: Arial, sans-serif;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative; /* Adiciona posição relativa à home */
+}
 
-  .product-price{
-    background-color: #429146;
-  }
-  
-  .product p {
-    margin: 5px 0;
-    color: #bdbcbc;
-  }
-  
-  .product p:first-child {
-    font-weight: bold;
-  
-  }
-  
-  .product p:last-child {
-    color: #d4d4d4;
-  }
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20px;
+  padding-left: 100px; /* Corrige a sintaxe da margem esquerda */
+  background-color: #c2c1c1;
+}
 
-  .product-image {
-    width: 100%; /* A imagem do produto preenche 100% do espaço disponível */
-    height: auto; /* Mantém a proporção da imagem */
-  }
+.menu-icon, .icon {
+  cursor: pointer;
+  font-size: 32px; /* Aumenta o tamanho dos ícones */
+}
 
-  
-  button {
-    background-color: #4CAF50; /* Cor de fundo */
-    color: white; /* Cor do texto */
-    font-weight: bold;
-    padding: 10px 20px; /* Espaçamento interno */
-    border: none; /* Remove a borda */
-    border-radius: 5px; /* Arredonda as bordas */
-    cursor: pointer; /* Mostra o cursor como ponteiro ao passar por cima */
-    transition: background-color 0.3s ease; /* Transição suave da cor de fundo */
-  }
-  
-    button:hover {
-    background-color: #429146; /* Cor de fundo quando hover */
-  }
-  
+.logo {
+  text-align: center;
+  height: 70px; /* Mantém a altura do logo */
+}
+
+.logo-image {
+  width: 300px; /* Ajusta o tamanho do logo */
+  height: auto;
+}
+
+.actions {
+  display: flex;
+}
+
+.dropdown-menu, .dropdown-settings {
+  position: absolute;
+  background-color: #030303;
+  border: 1px solid #ffffff;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  z-index: 10;
+  width: 150px;
+}
+
+.dropdown-menu {
+  top: calc(13% + 10px); /* Ajusta a posição do menu suspenso */
+  left: 5%;
+  transform: translateX(-50%);
+  background-color: black;
+}
+
+.dropdown-settings {
+  top: calc(12% + 20px); /* Ajusta a posição do menu suspenso */
+  right: 1%;
+  transform: translateX(50%);
+}
+
+.dropdown-menu ul, .dropdown-settings ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.dropdown-menu ul li, .dropdown-settings ul li {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.dropdown-menu ul li:hover, .dropdown-settings ul li:hover {
+  background-color: #adacac;
+}
+
+.content {
+  padding-top: 10px;
+  padding-bottom: 50px;
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: 20px;
+  width: 100%; /* Ajusta a largura para ocupar o espaço necessário */
+}
+
+.product {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  text-align: center;
+  background-color: #fff; /* Adiciona cor de fundo branca aos produtos */
+}
+
+.product h3 {
+  font-size: 16px;
+  margin: 5px 0;
+  color: black;
+}
+
+.product-price {
+  background-color: #429146;
+}
+
+
+.product p {
+  margin: 5px 0;
+  color: #bdbcbc;
+}
+
+.product p:first-child {
+  font-weight: bold;
+}
+
+.product p:last-child {
+  color: #d4d4d4;
+}
+
+.product-image {
+  width: 100%; /* A imagem do produto preenche 100% do espaço disponível */
+  height: auto; /* Mantém a proporção da imagem */
+}
+
+button {
+  background-color: #4CAF50; /* Cor de fundo */
+  color: white; /* Cor do texto */
+  font-weight: bold;
+  padding: 10px 20px; /* Espaçamento interno */
+  border: none; /* Remove a borda */
+  border-radius: 5px; /* Arredonda as bordas */
+  cursor: pointer; /* Mostra o cursor como ponteiro ao passar por cima */
+  transition: background-color 0.3s ease; /* Transição suave da cor de fundo */
+}
+
+button:hover {
+  background-color: #429146; /* Cor de fundo quando hover */
+}
+
+/* Estilos para o texto tie-dye */
+
+.tie-dye-text {
+  display: flex;
+}
+
+.tie-dye-text span {
+  position: relative;
+  font-size: 36px;
+  font-weight: bold;
+  display: inline-block;
+  background: linear-gradient(to right, #FF6F91 50%, #FF9671 50%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 2px 2px 2px #000; /* Sombra preta */
+}
