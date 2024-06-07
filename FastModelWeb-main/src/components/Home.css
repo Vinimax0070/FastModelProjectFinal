@@ -1,5 +1,3 @@
-/* Home.css */
-
 body {
   margin: 0;
   padding: 0;
@@ -177,20 +175,16 @@ button:hover {
   color: black;
 }
 
-/* Home.css */
-
-/* Other styles... */
-
 .cart-dropdown {
   position: absolute;
-  top: 80px; /* Adjust the top position according to your layout */
-  right: 10px; /* Adjust the right position according to your layout */
+  top: 80px; /* Ajuste a posição superior de acordo com o seu layout */
+  right: 10px; /* Ajuste a posição à direita de acordo com o seu layout */
   background-color: #080808;
   border: 1px solid #ccc;
   border-radius: 5px;
   padding: 10px;
   z-index: 10;
-  width: 200px; /* Adjust the width as needed */
+  width: 200px; /* Ajuste a largura conforme necessário */
 }
 
 .cart-dropdown h3 {
@@ -211,10 +205,6 @@ button:hover {
   margin-top: 20px;
   margin-bottom: 0;
 }
-
-/* Home.css */
-
-/* Outros estilos ... */
 
 button.addToCart {
   background-color: #df2828; /* Cor de fundo */
@@ -261,11 +251,18 @@ button.addToCart:hover {
   padding: 10px;
 }
 
-.streetwear-image {
-  width: 300px;
-  height: auto;
+.streetwear-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px; /* Diminui a largura do contêiner streetwear */
+  margin: 20px auto; /* Centraliza o contêiner horizontalmente */
 }
 
+.streetwear-image {
+  width: 100%; /* Ajusta a imagem para ocupar toda a largura do contêiner */
+  height: auto;
+}
 
 .estilo {
   font-size: 24px; /* Tamanho da fonte */
@@ -275,6 +272,4 @@ button.addToCart:hover {
   text-align: center; /* Alinha o texto no centro */
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Adiciona uma sombra ao texto */
 }
-
-
 

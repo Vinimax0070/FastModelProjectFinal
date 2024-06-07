@@ -12,13 +12,17 @@ import Bolsa from './tenisStreetImage/Bolsa.png';
 import Polo from './tenisStreetImage/Polo.png';
 import Adidas from './tenisStreetImage/AdidasCampus.png';
 import streetwear from './tenisStreetImage/streetWearImage.png';
+import streetwear2 from './tenisStreetImage/streetWearImage2.png';
+import zaraa1 from './tenisStreetImage/zara1.png';
+import zaraa2 from './tenisStreetImage/zara2.png';
 
 const Home = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
   const [cart, setCart] = useState([]);
-  const [streetWearVisible, setStreetWearVisible] = useState(false);
+  const [visibleSection, setVisibleSection] = useState(null); // null, 'streetwear1', or 'streetwear2'
+
   const menuRef = useRef(null);
   const settingsRef = useRef(null);
   const cartRef = useRef(null);
@@ -88,14 +92,21 @@ const Home = () => {
     { id: 10, category: 'StreetWalk', title: 'Moletom Lunar Polo Ralph Lauren', price: 'R$ 1.713', stars: 4.7, views: 15426, image: Polo },
   ];
 
-  const renderHalfColorText = (text) => {
-    return text.split('').map((letter, index) => (
-      <span key={index}>{letter}</span>
-    ));
+  const products2 = [
+    { id: 1, category: 'Casual', title: 'Sapato Com Volume Contraste', price: 'R$ 399,00', stars: 4.5, views: 150000, image: zaraa1 },
+    { id: 2, category: 'Casual', title: 'Camisa Básica Masculina Manga Longa Slim Em Linho', price: 'R$ 220,00', stars: 3.7, views: 4000, image: zaraa2 },
+    { id: 3, category: 'Casual', title: 'Camiseta Approve Big Bear', price: 'R$ 199,90', stars: 5, views: 5000, image: CamisetaApproveBigBear },
+    { id: 4, category: 'Casual', title: 'Nike SB Dunk Low Big Money Savings', price: 'R$ 1.159,99', stars: 4.8, views: 1200, image: NikeSbDunkLowBig },
+    { id: 5, category: 'Casual', title: 'Moletom Anti Social Social Club X Grand Turismo', price: 'R$ 1500,99', stars: 4, views: 9000, image: MoletomAntiSocialSocialClub },
+   
+  ];
+
+  const showStreetWear1 = () => {
+    setVisibleSection(visibleSection === 'streetwear1' ? null : 'streetwear1');
   };
 
-  const toggleStreetWearVisibility = () => {
-    setStreetWearVisible(!streetWearVisible);
+  const showStreetWear2 = () => {
+    setVisibleSection(visibleSection === 'streetwear2' ? null : 'streetwear2');
   };
 
   return (
@@ -151,11 +162,10 @@ const Home = () => {
         <h2>Bem-vindo à FastModel</h2>
         <p>Aqui você encontrará os melhores produtos!</p>
         <p className='estilo'>Clique no seu estilo e descubra o que mais está em alta!</p>
-        <div className="streetwear-container" onClick={toggleStreetWearVisibility}>
+        <div className="streetwear-container" onClick={showStreetWear1}>
           <img src={streetwear} alt="StreetWear" className="streetwear-image" />
-          
         </div>
-        {streetWearVisible && (
+        {visibleSection === 'streetwear1' && (
           <div className="products">
             {products.map((product, index) => (
               <div className="product" key={index}>
@@ -164,7 +174,24 @@ const Home = () => {
                 <p>{product.price}</p>
                 <p>⭐ {product.stars} estrelas</p>
                 <p>👁️ {product.views} views</p>
-                <button onClick={() => addToCart(product)}>Adicionar ao Carrrinho</button>
+                <button onClick={() => addToCart(product)}>Adicionar ao Carrinho</button>
+              </div>
+            ))}
+          </div>
+        )}
+        <div className="streetwear-container" onClick={showStreetWear2}>
+          <img src={streetwear2} alt="StreetWear" className="streetwear-image" />
+        </div>
+        {visibleSection === 'streetwear2' && (
+          <div className="products">
+            {products2.map((product, index) => (
+              <div className="product" key={index}>
+                <img src={product.image} alt={product.title} className="product-image" />
+                <h3>{product.title}</h3>
+                <p>{product.price}</p>
+                <p>⭐ {product.stars} estrelas</p>
+                <p>👁️ {product.views} views </p>
+                <button onClick={() => addToCart(product)}>Adicionar ao Carrinho</button>
               </div>
             ))}
           </div>
@@ -172,7 +199,6 @@ const Home = () => {
       </main>
     </div>
   );
-}
+};
 
 export default Home;
-
