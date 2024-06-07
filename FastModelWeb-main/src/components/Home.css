@@ -231,3 +231,50 @@ button.addToCart {
 button.addToCart:hover {
   background-color: #9c1515; /* Cor de fundo quando hover */
 }
+
+.home {
+  font-family: Arial, sans-serif;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #f8f8f8;
+  border-bottom: 1px solid #ddd;
+}
+
+.menu-icon, .actions .icon {
+  cursor: pointer;
+}
+
+.logo-image {
+  height: 120px;
+}
+
+.dropdown-menu, .dropdown-settings {
+  position: absolute;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+  padding: 10px;
+}
+
+.streetwear-image {
+  width: 300px;
+  height: auto;
+}
+
+
+.estilo {
+  font-size: 24px; /* Tamanho da fonte */
+  font-weight: bold; /* Negrito */
+  color: #d8d8e0; /* Cor do texto */
+  text-transform: uppercase; /* Transforma o texto em maiúsculas */
+  text-align: center; /* Alinha o texto no centro */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Adiciona uma sombra ao texto */
+}
+
+
+
