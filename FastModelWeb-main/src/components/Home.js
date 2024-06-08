@@ -12,9 +12,18 @@ import Bolsa from './tenisStreetImage/Bolsa.png';
 import Polo from './tenisStreetImage/Polo.png';
 import Adidas from './tenisStreetImage/AdidasCampus.png';
 import streetwear from './tenisStreetImage/streetWearImage.png';
+import streetwear3 from './tenisStreetImage/streetWearImage3.png';
 import streetwear2 from './tenisStreetImage/streetWearImage2.png';
 import zaraa1 from './tenisStreetImage/zara1.png';
 import zaraa2 from './tenisStreetImage/zara2.png';
+import zaraa3 from './tenisStreetImage/zara3.png';
+import zaraa4 from './tenisStreetImage/zara4.png';
+import zaraa5 from './tenisStreetImage/zara5.png';
+import ralph from './tenisStreetImage/RL.png';
+import ralph2 from './tenisStreetImage/RL2.png';
+import ralph3 from './tenisStreetImage/RL3.png';
+import ralph4 from './tenisStreetImage/RL4.png';
+import ralph5 from './tenisStreetImage/RL5.png';
 
 const Home = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -93,11 +102,20 @@ const Home = () => {
   ];
 
   const products2 = [
-    { id: 1, category: 'Casual', title: 'Sapato Com Volume Contraste', price: 'R$ 399,00', stars: 4.5, views: 150000, image: zaraa1 },
-    { id: 2, category: 'Casual', title: 'Camisa Básica Masculina Manga Longa Slim Em Linho', price: 'R$ 220,00', stars: 3.7, views: 4000, image: zaraa2 },
-    { id: 3, category: 'Casual', title: 'Camiseta Approve Big Bear', price: 'R$ 199,90', stars: 5, views: 5000, image: CamisetaApproveBigBear },
-    { id: 4, category: 'Casual', title: 'Nike SB Dunk Low Big Money Savings', price: 'R$ 1.159,99', stars: 4.8, views: 1200, image: NikeSbDunkLowBig },
-    { id: 5, category: 'Casual', title: 'Moletom Anti Social Social Club X Grand Turismo', price: 'R$ 1500,99', stars: 4, views: 9000, image: MoletomAntiSocialSocialClub },
+    { id: 1, category: 'Casual', title: 'Sapato Com Volume Contraste', price: 'R$ 399,00', stars: 4.5, views: 11318, image: zaraa1 },
+    { id: 2, category: 'Casual', title: 'Camisa Básica Masculina Manga Longa Slim Em Linho', price: 'R$ 220,00', stars: 3.7, views: 4421, image: zaraa2 },
+    { id: 3, category: 'Casual', title: 'Camiseta Manga Longa Em Sarja Com Costura Contrastante ', price: 'R$ 399,90', stars: 5, views: 5457, image: zaraa3 },
+    { id: 4, category: 'Casual', title: 'Camisa de linho ', price: 'R$740,99 ', stars: 4.8, views: 1256, image: zaraa4 },
+    { id: 5, category: 'Casual', title: 'Calça de Sarja ', price: 'R$ 399,99', stars: 4, views: 9034, image: zaraa5 },
+   
+  ];
+
+  const products3 = [
+    { id: 1, category: 'Casual', title: 'Polo Soft Silk-Linen Suit Jacket', price: 'R$ 6.490,00', stars: 4.9, views: 31318, image: ralph },
+    { id: 2, category: 'Casual', title: 'Hemp Twill Suit Trouser', price: 'R$ 1.620,00', stars: 4.7, views: 7921, image: ralph2 },
+    { id: 3, category: 'Casual', title: 'The RL67 Linen Twill Jacket ', price: 'R$ 7.799,90', stars: 5, views: 35457, image: ralph3 },
+    { id: 4, category: 'Casual', title: 'Linen-Blend-Twill Cropped Trousers ', price: 'R$1.210,00 ', stars: 4.9, views: 91256, image: ralph4 },
+    { id: 5, category: 'Casual', title: 'Two-Tone Ruffle-Trim Polo Jumper ', price: 'R$ 820,00', stars: 4.4, views: 69034, image: ralph5 },
    
   ];
 
@@ -108,6 +126,12 @@ const Home = () => {
   const showStreetWear2 = () => {
     setVisibleSection(visibleSection === 'streetwear2' ? null : 'streetwear2');
   };
+
+  const showStreetWear3 = () => {
+    setVisibleSection(visibleSection === 'streetwear3' ? null : 'streetwear3');
+  };
+
+  
 
   return (
     <div className="home">
@@ -196,7 +220,25 @@ const Home = () => {
             ))}
           </div>
         )}
-      </main>
+
+        <div className="streetwear-container" onClick={showStreetWear3}>
+                  <img src={streetwear3} alt="StreetWear" className="streetwear-image" />
+                </div>
+                {visibleSection === 'streetwear3' && (
+                  <div className="products">
+                    {products3.map((product, index) => (
+                      <div className="product" key={index}>
+                        <img src={product.image} alt={product.title} className="product-image" />
+                        <h3>{product.title}</h3>
+                        <p>{product.price}</p>
+                        <p>⭐ {product.stars} estrelas</p>
+                        <p>👁️ {product.views} views </p>
+                        <button onClick={() => addToCart(product)}>Adicionar ao Carrinho</button>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </main>
     </div>
   );
 };
