@@ -26,7 +26,8 @@ import ralph3 from './tenisStreetImage/RL3.png';
 import ralph4 from './tenisStreetImage/RL4.png';
 import ralph5 from './tenisStreetImage/RL5.png';
 
-const Home = ({ addToCart, removeFromCart, cart, total }) => {
+const Home = ({ addToCart, removeFromCart, cart, total, setTotal }) => {
+  // Seu código aqui
   const [menuOpen, setMenuOpen] = useState(false);
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
@@ -119,6 +120,19 @@ const Home = ({ addToCart, removeFromCart, cart, total }) => {
     navigate('/checkout');
   };
 
+ 
+
+  const handleRemoveFromCart = (productId) => {
+    const updatedCart = cart.filter((item) => item.id !== productId);
+    removeFromCart(productId);
+
+    // Verifica se o carrinho está vazio e redefine o total como zero, se necessário
+    if (updatedCart.length === 0) {
+        setTotal(0);
+    }
+};
+
+
   return (
     <div className="home">
       <header className="header">
@@ -160,7 +174,8 @@ const Home = ({ addToCart, removeFromCart, cart, total }) => {
               {cart.map((product, index) => (
                 <li key={index}>
                   {product.title} - {product.price}
-                  <button onClick={() => removeFromCart(product.id)} className="addToCart">Remover</button>
+                  <button onClick={() => handleRemoveFromCart(product.id)} className="addToCart">Remover</button>
+
                 </li>
               ))}
             </ul>

@@ -27,6 +27,7 @@ function App() {
     return (
         <Router>
             <Routes>
+                <Route path="/Home" element={<Home addToCart={addToCart} removeFromCart={removeFromCart} cart={cart} total={total} setTotal={setTotal} />} />
                 <Route path="/" element={<Login />} />
                 <Route path="/CadEnd" element={<CadEnd />} />
                 <Route path="/Cadastro" element={<Cadastro />} />

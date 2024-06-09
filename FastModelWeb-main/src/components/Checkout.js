@@ -3,6 +3,7 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import './Checkout.css';
 
+
 const Checkout = ({ cart, total }) => {
   const [cardType, setCardType] = useState('credit');
   const [expiryDate, setExpiryDate] = useState(null);
@@ -24,7 +25,7 @@ const Checkout = ({ cart, total }) => {
 
   return (
     <div className="checkout-container">
-      <h2>Finalização da Compra</h2>
+      <h2 className='h2ck'>Finalização da Compra</h2>
       <form className="checkout-form">
         <div className="form-group">
           <label htmlFor="cardType">Tipo de Cartão:</label>

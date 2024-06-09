@@ -16,6 +16,9 @@
     margin-right: 20px;
   }
   
+  .h2ck{
+    color: #000;
+  }
   .cart-summary {
     flex: 1;
     background-color: #fff;
