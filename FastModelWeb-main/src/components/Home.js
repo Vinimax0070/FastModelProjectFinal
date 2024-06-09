@@ -1,4 +1,5 @@
 ﻿import React, { useState, useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Home.css';
 import logo from './logo.png';
 import CamisetaCapangaTriadShui from './tenisStreetImage/CamisetaCapangaTriadShui.png';
@@ -25,16 +26,16 @@ import ralph3 from './tenisStreetImage/RL3.png';
 import ralph4 from './tenisStreetImage/RL4.png';
 import ralph5 from './tenisStreetImage/RL5.png';
 
-const Home = () => {
+const Home = ({ addToCart, removeFromCart, cart, total }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
-  const [cart, setCart] = useState([]);
-  const [visibleSection, setVisibleSection] = useState(null); // null, 'streetwear1', or 'streetwear2'
+  const [visibleSection, setVisibleSection] = useState(null);
 
   const menuRef = useRef(null);
   const settingsRef = useRef(null);
   const cartRef = useRef(null);
+  const navigate = useNavigate();
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -73,21 +74,6 @@ const Home = () => {
     };
   }, []);
 
-  const addToCart = (product) => {
-    setCart([...cart, product]);
-  };
-
-  const removeFromCart = (productId) => {
-    setCart(cart.filter(product => product.id !== productId));
-  };
-
-  const calculateTotal = () => {
-    return cart.reduce((total, product) => {
-      const price = parseFloat(product.price.replace('R$', '').replace('.', '').replace(',', '.'));
-      return total + price;
-    }, 0).toFixed(2);
-  };
-
   const products = [
     { id: 1, category: 'StreetWalk', title: 'Adidas Campus 00s', price: 'R$ 699,99', stars: 4, views: 150000, image: Adidas },
     { id: 2, category: 'StreetWalk', title: 'Camiseta CapangaTriad Shui', price: 'R$ 699,99', stars: 5, views: 2000, image: CamisetaCapangaTriadShui },
@@ -107,7 +93,6 @@ const Home = () => {
     { id: 3, category: 'Casual', title: 'Camiseta Manga Longa Em Sarja Com Costura Contrastante ', price: 'R$ 399,90', stars: 5, views: 5457, image: zaraa3 },
     { id: 4, category: 'Casual', title: 'Camisa de linho ', price: 'R$740,99 ', stars: 4.8, views: 1256, image: zaraa4 },
     { id: 5, category: 'Casual', title: 'Calça de Sarja ', price: 'R$ 399,99', stars: 4, views: 9034, image: zaraa5 },
-   
   ];
 
   const products3 = [
@@ -116,7 +101,6 @@ const Home = () => {
     { id: 3, category: 'Casual', title: 'The RL67 Linen Twill Jacket ', price: 'R$ 7.799,90', stars: 5, views: 35457, image: ralph3 },
     { id: 4, category: 'Casual', title: 'Linen-Blend-Twill Cropped Trousers ', price: 'R$1.210,00 ', stars: 4.9, views: 91256, image: ralph4 },
     { id: 5, category: 'Casual', title: 'Two-Tone Ruffle-Trim Polo Jumper ', price: 'R$ 820,00', stars: 4.4, views: 69034, image: ralph5 },
-   
   ];
 
   const showStreetWear1 = () => {
@@ -131,7 +115,9 @@ const Home = () => {
     setVisibleSection(visibleSection === 'streetwear3' ? null : 'streetwear3');
   };
 
-  
+  const finalizePurchase = () => {
+    navigate('/checkout');
+  };
 
   return (
     <div className="home">
@@ -179,7 +165,8 @@ const Home = () => {
               ))}
             </ul>
           )}
-          <h4>Total: R$ {calculateTotal()}</h4>
+          <h4>Total: R$ {total.toFixed(2)}</h4>
+          <button onClick={finalizePurchase} className="checkout-button">Finalizar Compra</button>
         </div>
       )}
       <main className="content">
@@ -220,25 +207,24 @@ const Home = () => {
             ))}
           </div>
         )}
-
         <div className="streetwear-container" onClick={showStreetWear3}>
-                  <img src={streetwear3} alt="StreetWear" className="streetwear-image" />
-                </div>
-                {visibleSection === 'streetwear3' && (
-                  <div className="products">
-                    {products3.map((product, index) => (
-                      <div className="product" key={index}>
-                        <img src={product.image} alt={product.title} className="product-image" />
-                        <h3>{product.title}</h3>
-                        <p>{product.price}</p>
-                        <p>⭐ {product.stars} estrelas</p>
-                        <p>👁️ {product.views} views </p>
-                        <button onClick={() => addToCart(product)}>Adicionar ao Carrinho</button>
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </main>
+          <img src={streetwear3} alt="StreetWear" className="streetwear-image" />
+        </div>
+        {visibleSection === 'streetwear3' && (
+          <div className="products">
+            {products3.map((product, index) => (
+              <div className="product" key={index}>
+                <img src={product.image} alt={product.title} className="product-image" />
+                <h3>{product.title}</h3>
+                <p>{product.price}</p>
+                <p>⭐ {product.stars} estrelas</p>
+                <p>👁️ {product.views} views </p>
+                <button onClick={() => addToCart(product)}>Adicionar ao Carrinho</button>
+              </div>
+            ))}
+          </div>
+        )}
+      </main>
     </div>
   );
 };

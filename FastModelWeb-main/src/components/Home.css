@@ -274,3 +274,8 @@ button.addToCart:hover {
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Adiciona uma sombra ao texto */
 }
 
+.checkout-button{
+  margin-top: 30px;
+  margin-left: 30px;
+  
+}
