@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import './CadEnd.css';
 import logo from './logo.png';
-import { Link } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
-
+import { Link, useNavigate } from 'react-router-dom';
 
 function CadEnd() {
     const [nomeCompleto, setNomeCompleto] = useState('');
@@ -14,11 +12,58 @@ function CadEnd() {
 
     const navigate = useNavigate();
 
-    const handleAvancar = () => {
-        // Lógica para validar os dados (opcional)
-        // ...
+    async function adicionarUsuario(usuario) {
+        const url = 'https://b2e0-170-254-23-7.ngrok-free.app/api/Usuario/AdicionarUsuario';
 
-        navigate('/cadastro'); // Redirecionar para a rota de cadastro
+        try {
+            const response = await fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(usuario)
+            });
+
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+
+            const result = await response.json();
+            return result;
+
+        } catch (error) {
+            console.error('There was a problem with the fetch operation:', error);
+            return null;
+        }
+    }
+
+    const handleAvancar = async () => {
+        // Validação opcional dos dados
+        if (senha !== confirmarSenha) {
+            alert('As senhas não coincidem.');
+            return;
+        }
+
+        const nomeSplit = nomeCompleto.trim().split(' ');
+        const nome = nomeSplit[0];
+        const sobreNome = nomeSplit.slice(1).join(' ');
+
+        const usuario = {
+            nome: nome,
+            sobreNome: sobreNome,
+            email: email,
+            data_Nascimento: new Date(dataNascimento).toISOString(),
+            senha: senha
+        };
+
+        const result = await adicionarUsuario(usuario);
+        
+
+        if (result && result.id_Usuario) {
+            navigate(`/Cadastro?id_usuario=${result.id_Usuario}`);
+        } else {
+            alert('Erro ao cadastrar usuário.');
+        }
     };
 
     return (

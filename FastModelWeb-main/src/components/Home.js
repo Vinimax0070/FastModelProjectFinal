@@ -104,6 +104,36 @@ const Home = ({ addToCart, removeFromCart, cart, total, setTotal }) => {
     { id: 5, category: 'Casual', title: 'Two-Tone Ruffle-Trim Polo Jumper ', price: 'R$ 820,00', stars: 4.4, views: 69034, image: ralph5 },
   ];
 
+    async function fetchProducts() {
+        const url = 'https://b2e0-170-254-23-7.ngrok-free.app/api/Produto/Listar';
+
+        try {
+            const response = await fetch(url);
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            const data = await response.json();
+            return data;
+        } catch (error) {
+            console.error('There was a problem with the fetch operation:', error);
+            return [];
+        }
+    }
+
+    fetchProducts().then((data) => {
+        const modifiedProducts = data.map((item) => ({
+            id: item.id_Produto,
+            category: 'StreetWalk',
+            title: item.nome,
+            price: `R$ ${item.preco.toFixed(2).replace('.', ',')}`,
+            stars: item.rating,
+            views: item.cont_Reviews,
+            image: item.img_Url,
+        }));
+        console.log(modifiedProducts);
+    });
+
+
   const showStreetWear1 = () => {
     setVisibleSection(visibleSection === 'streetwear1' ? null : 'streetwear1');
   };

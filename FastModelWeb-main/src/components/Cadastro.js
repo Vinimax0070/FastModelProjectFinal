@@ -3,8 +3,14 @@ import './CadEnd.css';
 import logo from './logo.png';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 function Cadastro() {
+
+    const location = useLocation();
+    const searchParams = new URLSearchParams(location.search);
+    const id_usuario = searchParams.get('id_usuario');
+
     const [cep, setCep] = useState('');
     const [rua, setRua] = useState('');
     const [numero, setNumero] = useState('');
@@ -15,8 +21,51 @@ function Cadastro() {
     const numeroRef = useRef(null);
     const navigate = useNavigate();
 
-    const handleFinalizar = () => {
+    async function adicionarEndereco(endereco) {
+        const url = 'https://b2e0-170-254-23-7.ngrok-free.app/api/Endereco/AdicionarEndereco';
+
+        try {
+            const response = await fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(endereco)
+            });
+
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+
+            const result = await response.json();
+            return result;
+
+        } catch (error) {
+            console.error('There was a problem with the fetch operation:', error);
+            return null;
+        }
+    }
+
+
+    const handleFinalizar = async () => {
         navigate('/'); // Navega para a rota principal ('/') que é o seu Login
+        const endereco = {
+            cep: cep,
+            rua: rua,
+            numero: numero,
+            cidade: cidade,
+            bairro: bairro,
+            id_Usuario: id_usuario
+        };
+
+        const result = await adicionarEndereco(endereco);
+
+
+        if (result && result.id_Usuario) {
+            navigate('/');
+        } else {
+            alert('Erro ao cadastrar endereço.');
+        }
     };
 
     const preencherEndereco = async () => {
@@ -64,7 +113,7 @@ function Cadastro() {
                 <div className="form-group">
                     <input
                         type="text"
-                        placeholder="Rua*"
+                        placeholder="Rua*" 
                         value={rua}
                         onChange={(e) => setRua(e.target.value)}
                         required
