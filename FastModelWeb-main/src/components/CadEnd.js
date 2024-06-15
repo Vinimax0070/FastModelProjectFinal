@@ -13,7 +13,7 @@ function CadEnd() {
     const navigate = useNavigate();
 
     async function adicionarUsuario(usuario) {
-        const url = 'https://b2e0-170-254-23-7.ngrok-free.app/api/Usuario/AdicionarUsuario';
+        const url = 'https:localhost:7270/api/Usuario/AdicionarUsuario';
 
         try {
             const response = await fetch(url, {

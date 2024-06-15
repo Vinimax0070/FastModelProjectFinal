@@ -22,7 +22,7 @@ function Cadastro() {
     const navigate = useNavigate();
 
     async function adicionarEndereco(endereco) {
-        const url = 'https://b2e0-170-254-23-7.ngrok-free.app/api/Endereco/AdicionarEndereco';
+        const url = 'https:localhost:7270/api/Endereco/AdicionarEndereco';
 
         try {
             const response = await fetch(url, {

@@ -10,7 +10,7 @@ function Login() {
     const navigate = useNavigate();
 
     async function loginUser(username, password) {
-        const url = `https://b2e0-170-254-23-7.ngrok-free.app/api/Usuario/Login/${username}/${password}`;
+        const url = `https:localhost:7270/api/Usuario/Login/${username}/${password}`;
 
         try {
             const response = await fetch(url, {
